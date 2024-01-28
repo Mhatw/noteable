@@ -21,10 +21,13 @@
     "noFallthroughCasesInSwitch": true,
 
     /* Path */
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
+      "@/*": [
+        "./src/*"
+      ]
     }
+
   },
   "include": ["src", "types/vite-env.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]

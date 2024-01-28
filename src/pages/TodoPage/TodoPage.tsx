@@ -1,11 +1,9 @@
-import "./App.css";
-
-function App() {
+const TodoPage = () => {
   return (
     <>
       <p className="text-3xl font-bold underline">Noteable challenge</p>
     </>
   );
-}
+};
 
-export default App;
+export default TodoPage;
