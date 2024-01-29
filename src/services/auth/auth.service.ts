@@ -8,7 +8,7 @@ export const loginWithMagicLink = async (config: LoginWithMagicLinkParams) => {
       email,
       options: {
         shouldCreateUser: true,
-        emailRedirectTo: "http://localhost:5173/",
+        emailRedirectTo: "https://noteable-mhatw.vercel.app/",
       },
     });
     if (response.error) {
@@ -42,7 +42,8 @@ export const signOut = async () => {
     if (response.error) {
       throw response.error;
     }
-  } catch (error) {
-    console.log(error);
+  } catch (e) {
+    const error = e as Error;
+    throw error;
   }
 };
