@@ -1,30 +1,76 @@
-# React + TypeScript + Vite
+# MyNote App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to MyNote, a web application for creating and managing notes. This project leverages [Supabase](https://supabase.io/) as the backend to handle data storage and retrieval. Users can log in seamlessly using Magic Link authentication or their GitHub accounts.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Create and manage notes with a user-friendly interface.
+- Backed by Supabase for secure and scalable data storage.
+- Multiple authentication options:
+  - **Magic Link:** Swift and secure login via email (please note: the free Supabase plan may have limits on Magic Link usage).
+  - **GitHub:** Login using your GitHub account.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Prerequisites
 
-- Configure the top-level `parserOptions` property like this:
+Before you begin, ensure you have the following installed:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+- [Node.js](https://nodejs.org/)
+- [Yarn](https://yarnpkg.com/) (the project uses Yarn)
+- [Supabase Account](https://app.supabase.io/)
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+     git clone https://github.com/your-username/mynote-app.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Navigate to the project directory:
+
+```bash
+  cd noteable
+```
+
+3. Install dependencies using Yarn:
+
+```bash
+  node --version
+```
+
+
+### Configuration
+Create a Supabase project and obtain your API key.
+
+Copy the .env.example file to .env:
+
+```bash
+  cp .env.example .env
+```
+
+Update the .env file with your Supabase project details.
+
+### Running the App
+
+```bash
+  yarn dev
+```
+
+### Authentication
+
+#### Magic Link
+
+Click on the "Login with Magic Link" button.
+Enter your email address.
+
+Check your email for the Magic Link and click to log in.
+
+Please note: The free Supabase plan may have usage limits on Magic Link authentication.
+
+#### GitHub
+
+Click on the "Login with GitHub" button.
+
+Authorize the application on the GitHub login page.
