@@ -16,6 +16,7 @@ const useListenAuth = () => {
     } = supabase.auth.onAuthStateChange((event, session) => {
       if (event === "PASSWORD_RECOVERY") return;
       const currentUser = session?.user;
+      console.log("🚀 ~ currentUser:", currentUser);
       if (currentUser) {
         navigate("/");
       }

@@ -20,6 +20,13 @@ export default {
     },
     extend: {
       colors: {
+        note: {
+          gray1: "#333333",
+          gray2: "#4F4F4F",
+          gray4: "#BDBDBD",
+          gray5: "#E0E0E0",
+          gray6: "#F2F2F2",
+        },
         primaryC: {
           50: "#eff6ff",
           100: "#dbeafe",

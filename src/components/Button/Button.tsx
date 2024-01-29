@@ -1,10 +1,11 @@
 import React from "react";
 import { ButtonProps } from "./Button.types";
 import { ReloadIcon } from "@radix-ui/react-icons";
+import { cn } from "@/lib/utils";
 
 const Button: React.FC<ButtonProps> = (props) => {
   const { children, onClick, className, disabled, size, type, variant } = props;
-  const { isLoading } = props;
+  const { isLoading, buttonRef } = props;
 
   const handleClick = () => {
     onClick?.();
@@ -13,20 +14,22 @@ const Button: React.FC<ButtonProps> = (props) => {
   const getVariant = () => {
     switch (variant) {
       case "primary":
-        return "bg-primaryC-600 hover:bg-primaryC-700 focus:ring-2 focus:outline-none focus:ring-primaryC-300";
+        return "bg-primaryC-600 hover:bg-primaryC-700 text-white font-medium ";
       case "secondary":
-        return "bg-primaryC-200 hover:bg-primaryC-300 focus:ring-2 focus:outline-none focus:ring-primaryC-300";
+        return "bg-note-gray5 hover:bg-note-gray4 text-note-gray2 font-bold ";
       case "danger":
-        return "bg-red-600 hover:bg-red-700 focus:ring-2 focus:outline-none focus:ring-red-300";
+        return "bg-red-600 hover:bg-red-700 text-white font-medium ";
       case "github":
-        return "bg-primaryBlack-800 hover:bg-primaryBlack-900 focus:ring-2 focus:outline-none focus:ring-primaryBlack-300";
+        return "bg-primaryBlack-800 hover:bg-primaryBlack-900 text-white font-medium ";
       default:
-        return "bg-primaryC-600 hover:bg-primaryC-700 focus:ring-2 focus:outline-none focus:ring-primaryC-300";
+        return "bg-primaryC-600 hover:bg-primaryC-700 text-white font-medium ";
     }
   };
 
   const getSize = () => {
     switch (size) {
+      case "xs":
+        return "px-3 py-1 text-xs";
       case "sm":
         return "px-5 py-2.5 text-sm";
       case "md":
@@ -50,14 +53,17 @@ const Button: React.FC<ButtonProps> = (props) => {
   };
 
   const isDisabled = () => {
-    return disabled || isLoading ? "opacity-80 cursor-not-allowed" : "";
+    return disabled || isLoading ? "opacity-50 cursor-not-allowed" : "";
   };
 
   return (
     <button
-      disabled={disabled}
+      ref={buttonRef}
+      disabled={disabled || isLoading}
       onClick={handleClick}
-      className={`${getVariant()} ${getSize()} ${isDisabled()} ${className} text-white font-medium rounded-lg text-center flex items-center justify-center`}
+      className={cn(
+        `${getVariant()} ${getSize()} ${isDisabled()} rounded-lg text-center flex items-center justify-center ${className}`
+      )}
       type={getType()}
     >
       {isLoading ? <ReloadIcon className="mr-2 h-4 w-4 animate-spin" /> : null}

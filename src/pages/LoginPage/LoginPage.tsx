@@ -35,26 +35,18 @@ const LoginPage = () => {
         },
         duration: 10000,
       });
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   const handleGithubLogin = async () => {
     setLoading(true);
     try {
       await loginWithGithub();
-    } catch (e) {
-      const error = e as Error;
-      toast("🤔 Something went wrong", {
-        description: error.message,
-        action: {
-          label: "Undo",
-          onClick: () => {},
-        },
-        duration: 10000,
-      });
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (

@@ -1,6 +1,6 @@
 import ProtectedRoute from "@/containers/ProtectedRoute/ProtectedRoute";
 import LoginPage from "@/pages/LoginPage/LoginPage";
-import TodoPage from "@/pages/TodoPage/TodoPage";
+import NotePage from "@/pages/NotePage/NotePage";
 import { createHashRouter } from "react-router-dom";
 
 const router = createHashRouter([
@@ -8,7 +8,7 @@ const router = createHashRouter([
     path: "/",
     element: (
       <ProtectedRoute>
-        <TodoPage />
+        <NotePage />
       </ProtectedRoute>
     ),
     errorElement: <p>404 Not Found</p>,

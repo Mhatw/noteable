@@ -6,5 +6,6 @@ export interface ButtonProps {
   className?: string;
   type?: "button" | "submit" | "reset";
   variant?: "primary" | "secondary" | "danger" | "github";
-  size?: "sm" | "md" | "lg";
+  size?: "xs" | "sm" | "md" | "lg";
+  buttonRef?: React.RefObject<HTMLButtonElement>;
 }
