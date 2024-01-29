@@ -9,6 +9,7 @@ const Providers: React.FC = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
+
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
