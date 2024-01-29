@@ -12,6 +12,7 @@ export const useLoginWithMagicLink = () => {
     LoginWithMagicLinkParams
   >({
     mutationFn: (config) => loginWithMagicLink(config),
+    retry: false,
     onError(error) {
       defaultErrorMessage(error.message);
     },
